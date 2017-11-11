@@ -5,15 +5,16 @@ using UnityEngine;
 public class Controls : MonoBehaviour {
 
     public float movementSpeed;
+    public Rigidbody2D rb;
     bool isMoving;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        rb = GetComponent<Rigidbody2D>();
+	}    
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Vector2 movement = new Vector2();
         isMoving = false;
         if (Input.GetKey(KeyCode.W))
@@ -36,7 +37,8 @@ public class Controls : MonoBehaviour {
             movement += new Vector2(movementSpeed, 0.0f);
             isMoving = true;
         }
-        gameObject.transform.position += new Vector3(movement.x, movement.y, 0) * Time.deltaTime;
+
+        rb.AddForce(new Vector2(movement.x, movement.y));
 	}
 
     public bool getIsMoving() { return isMoving; }
