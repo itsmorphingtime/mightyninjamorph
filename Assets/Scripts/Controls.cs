@@ -42,4 +42,13 @@ public class Controls : MonoBehaviour {
 	}
 
     public bool getIsMoving() { return isMoving; }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Blob")
+        {
+
+            collision.gameObject.transform.parent = gameObject.transform;
+        }
+    }
 }
