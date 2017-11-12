@@ -729,7 +729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862d0431da44d7f458b921e3a07c4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4739050433110348, guid: ad3d11ee38c95354fa8559d692df38fd, type: 2}
+  prefabs: {fileID: 4392676400326188, guid: 849d6c538ff0e5047b86ad7d19cafc1c, type: 2}
+  prefabm: {fileID: 4245970420232610, guid: 454de02d80b64124db1c3976eb1de7ec, type: 2}
+  prefabl: {fileID: 4404170010120668, guid: 7a25baa7393aad246a9f90f615a96929, type: 2}
 --- !u!4 &2025177999
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +782,7 @@ GameObject:
   - component: {fileID: 2048099191}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

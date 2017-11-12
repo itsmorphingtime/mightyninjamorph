@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttributes : MonoBehaviour {
 
+    public string ID { get { return id; } set { id = value; } }
+    string id;
+    public string Name { get { return playerName; } set { playerName = value; } }
+    string playerName;
     public int Score { get { return (int)Mathf.Floor(scoreFloat); } }
     int amountOfBlobs;
     public int Blobs { get { return amountOfBlobs; } }
@@ -37,7 +42,17 @@ public class PlayerAttributes : MonoBehaviour {
         scoreFloat += amountOfBlobs * Time.deltaTime;
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(rightThrust - leftThrust, upwardThrust - downwardThrust));
         gameObject.GetComponent<Rigidbody2D>().AddTorque(anticlockwiseTorque - clockwiseTorque);
-	}
+
+
+        GameObject.FindGameObjectWithTag("UI").GetComponent<Text>().text = "Score: " + Score + System.Environment.NewLine +
+            "Blobs: " + Blobs + System.Environment.NewLine +
+            "Upward Thrust: " + upwardThrust + System.Environment.NewLine +
+            "Left Thrust: " + leftThrust + System.Environment.NewLine +
+            "Right Thrust: " + rightThrust + System.Environment.NewLine +
+            "Downward Thrust: " + downwardThrust + System.Environment.NewLine +
+            "Anticlockwise Torque: " + anticlockwiseTorque + System.Environment.NewLine +
+            "Clockwise Torque: " + clockwiseTorque;
+    }
 
     public void IncrementBlob()
     {
